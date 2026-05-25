@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "gsap": "^3.15.0",
+    "split-type": "^0.3.4",
+    "swiper": "^12.1.4",
     "three": "^0.184.0"
   }
 }

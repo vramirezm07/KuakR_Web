@@ -5,17 +5,38 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kuaki Catalog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Bytesized&family=Coral+Pixels&family=Jacquard+12&family=Jacquarda+Bastarda+9&family=Micro+5+Charted&family=Montserrat+Alternates:ital,wght@0,100..900;1,100..900&family=Rubik+Storm&display=swap"
+    />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
     <div id="startScreen">
+      <div class="cctv-hud" aria-hidden="true">
+        <span class="cctv-rec"><span class="cctv-rec-dot"></span> REC</span>
+        <span class="cctv-time" id="cctvTime"></span>
+      </div>
       <h1 class="glitch-target">Kuaki</h1>
       <h1 class="glitch-target">Renata</h1>
       <p>Click to start</p>
+      <canvas id="glitch-canvas" class="glitch-canvas"></canvas>
     </div>
 
-    <div id="rain-container"></div>
-
+    <div id="rainScreen">
+      <div class="cctv-hud" aria-hidden="true">
+        <span class="cctv-rec"><span class="cctv-rec-dot"></span> REC</span>
+        <span class="cctv-time" id="cctvTimeRain"></span>
+      </div>
+      <div id="instrucciones"> 
+        <h2>¡Bienvenido!</h2>
+        <p>Haz click en el objeto más preciado de <span id="hack_text">R̶͒̂È̶̈́D̶̈́͑A̶̅̽C̶̄͑T̶͌̕Ȅ̶̿D̶͆</span> para pasar a la siguiente pantalla.</p>
+      </div>
+        <div id="rain-container"></div>
+      <canvas id="glitch-canvas-rain" class="glitch-canvas"></canvas>
+    </div>
 
     <script type="module" src="/src/main.js"></script>
   </body>

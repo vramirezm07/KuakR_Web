@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Icon: reply-all
+  Set: Pixelarticons
+  Author: Gerrit Halfmann (https://github.com/halfmage/pixelarticons)
+  License: MIT (https://github.com/halfmage/pixelarticons/blob/master/LICENSE)
+  Source: https://iconify.design
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 24 24"
+     width="24"
+     height="24">
+  <title>Pixelated Arrow Icon</title>
+  <metadata>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:dc="http://purl.org/dc/elements/1.1/"
+             xmlns:cc="http://creativecommons.org/ns#">
+      <cc:Work rdf:about="">
+        <dc:title>Pixelated Arrow Icon</dc:title>
+        <dc:description>A pixelated arrow icon pointing to the right, ideal for retro-themed designs, digital interfaces, or gaming-related projects. Perfect for use in websites, apps, and graphic design.</dc:description>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Gerrit Halfmann</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:source>https://github.com/halfmage/pixelarticons</dc:source>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Gerrit Halfmann</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <cc:license rdf:resource="https://github.com/halfmage/pixelarticons/blob/master/LICENSE"/>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>pixelated-arrow</rdf:li>
+            <rdf:li>retro-arrow</rdf:li>
+            <rdf:li>pixel-arrow</rdf:li>
+            <rdf:li>right-pointing-arrow</rdf:li>
+            <rdf:li>digital-arrow</rdf:li>
+            <rdf:li>gaming-icon</rdf:li>
+            <rdf:li>retro-design</rdf:li>
+            <rdf:li>pixel-art</rdf:li>
+            <rdf:li>arrow-icon</rdf:li>
+            <rdf:li>right-arrow</rdf:li>
+            <rdf:li>digital-navigation</rdf:li>
+            <rdf:li>pixelated-design</rdf:li>
+            <rdf:li>retro-gaming</rdf:li>
+            <rdf:li>pixel-graphics</rdf:li>
+            <rdf:li>directional-arrow</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="https://github.com/halfmage/pixelarticons/blob/master/LICENSE">
+        <dc:title>MIT (MIT)</dc:title>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <path fill="currentColor" d="M13 19h2v-4h7V9h-7V5h-2v2h-2v2H9v2H7v2h2v2h2v2h2zM8 7H6v2H4v2H2v2h2v2h2v2h2v2h2v-2H8v-2H6v-2H4v-2h2V9h2zm0 0h2V5H8z"/>
+</svg>

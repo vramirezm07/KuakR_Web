@@ -1,46 +1,114 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Bytesized&family=Coral+Pixels&family=Jacquard+12&family=Jacquarda+Bastarda+9&family=Micro+5+Charted&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Storm&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bytesized&family=Coral+Pixels&family=Jacquard+12&family=Jacquarda+Bastarda+9&family=Micro+5+Charted&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Storm&display=swap');
+@import 'swiper/css';
 
-*
-{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-html, body
-{
+html,
+body {
 
-    overflow: hidden;
+  overflow: hidden;
 }
 
 
 
-#startScreen{
-  position:relative;
-    width:100%;   
-    height:100vh; 
-  display:flex;
+.glitch-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.cctv-hud {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Micro 5 Charted', 'Montserrat Alternates', monospace;
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  color: rgba(180, 255, 180, 0.85);
+  text-shadow: 0 0 8px rgba(0, 255, 80, 0.5);
+  z-index: 6;
+  pointer-events: none;
+  letter-spacing: 0.08em;
+}
+
+.cctv-rec {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cctv-rec-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff2a2a;
+  box-shadow: 0 0 10px #ff2a2a;
+  animation: recBlink 1.2s ease-in-out infinite;
+}
+
+@keyframes recBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.cctv-time {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.9;
+}
+
+#startScreen,
+#rainScreen {
+  transition: filter 0.05s linear;
+}
+
+#startScreen.cctv-surge,
+#rainScreen.cctv-surge {
+  filter: contrast(1.15) saturate(0.9) hue-rotate(-8deg);
+}
+
+#startScreen {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
   flex-direction: column;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   background: black;
   gap: 10px;
 }
 
 
 
-#startScreen p{
-  font-size:2vw;
-  color:#fff;
+#startScreen p {
+  font-size: 2vw;
+  color: #fff;
   display: grid;
-  pointer-events:none;
+  pointer-events: none;
   position: relative;
   margin-top: 11%;
   z-index: 1;
   font-family: 'Montserrat Alternates', sans-serif;
 }
 
-#startScreen .glitch-target{
+#startScreen .glitch-target {
   position: absolute;
   inset: 0;
   display: flex;
@@ -54,51 +122,390 @@ html, body
   width: 100%;
 }
 
-#startScreen .glitch-target{
+#startScreen .glitch-target {
   z-index: 2;
 }
 
-#startScreen h1{
-  font-size:10vw;
-  color:#fff;
+#startScreen h1 {
+  font-size: 10vw;
+  color: #fff;
+  font-weight: 400;
+  font-style: normal;
   transition: font-family 0.1s ease, opacity 0.1s;
 }
 
 
 
-#startScreen .glitch-target.active{
+#startScreen .glitch-target.active {
   opacity: 1;
 }
 
-.glitch{
-  animation: glitchAnim 0.1s steps(1,end) infinite;
-}
-@keyframes glitchAnim{
-  0% { transform: translateX(0); text-shadow: 2px 0 #ff005c, -2px 0 #00fff0; opacity:1; }
-  20% { transform: translateX(-6px); opacity:0.9; }
-  40% { transform: translateX(6px); text-shadow: 6px 0 #ff005c, -6px 0 #00fff0; opacity:0.7; }
-  60% { transform: translateX(-3px); opacity:0.9; }
-  100% { transform: translateX(0); opacity:1; }
+.glitch {
+  animation: glitchAnim 0.08s steps(2, end) infinite;
+  clip-path: inset(0 0 0 0);
 }
 
-#rain-container{
+@keyframes glitchAnim {
+  0% {
+    transform: translate(0, 0) skewX(0deg);
+    text-shadow: 3px 0 #ff005c, -3px 0 #00fff0, 0 2px rgba(0, 255, 80, 0.4);
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+
+  15% {
+    transform: translate(-8px, 1px) skewX(-3deg);
+    clip-path: inset(12% 0 55% 0);
+    opacity: 0.85;
+  }
+
+  30% {
+    transform: translate(10px, -2px) skewX(2deg);
+    text-shadow: 8px 0 #ff005c, -8px 0 #00fff0;
+    clip-path: inset(40% 0 20% 0);
+    opacity: 0.65;
+  }
+
+  45% {
+    transform: translate(-4px, 0);
+    clip-path: inset(70% 0 5% 0);
+    opacity: 0.9;
+  }
+
+  60% {
+    transform: translate(6px, 2px) skewX(4deg);
+    text-shadow: -4px 0 #39ff14, 4px 0 #ff005c;
+  }
+
+  100% {
+    transform: translate(0, 0) skewX(0deg);
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+#rain-container {
   position: fixed;
   inset: 0;
   overflow: hidden;
-  pointer-events: none;
+  pointer-events: auto;
+  width: 100%;
+  height: 100vh;
+  background: black;
 }
 
-.rain-object{
+#rain-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.12) 2px,
+      rgba(0, 0, 0, 0.12) 4px);
+  z-index: 3;
+}
+
+#rainScreen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: black;
+}
+
+#rainScreen .glitch-canvas {
+  z-index: 8;
+}
+
+#instrucciones {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 90%;
+  padding: 15px 20px;
+  text-align: center;
+  color: #ffffff;
+  z-index: 10;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+#instrucciones h2 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+  font-family: "Bytesized", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#instrucciones p {
+  font-size: 1rem;
+}
+
+#hack_text {
+  color: rgb(255, 0, 0);
+
+  font-family: 'Rubik Storm', monospace;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+
+  filter: blur(0.3px);
+
+  text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.15),
+    0 0 12px rgba(255, 255, 255, 0.08);
+}
+
+.hack-char {
+  display: inline-block;
+  will-change: transform;
+}
+
+.rain-object {
   position: absolute;
   top: -100px;
-
   width: 80px;
-
-  animation: fall linear forwards;
+  animation: fall 6s linear forwards;
+  filter: contrast(1.05) saturate(0.95);
 }
 
-@keyframes fall{
-  to{
+.rain-object.rain-glitch-snap {
+  animation: fallGlitch 6s linear forwards;
+}
+
+@keyframes fall {
+  to {
     transform: translateY(120vh) rotate(360deg);
   }
+}
+
+@keyframes fallGlitch {
+
+  0%,
+  88%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    filter: contrast(1.05) saturate(0.95);
+  }
+
+  90% {
+    transform: translateY(8vh) translateX(-12px) rotate(15deg) scaleX(1.08);
+    filter: contrast(1.4) hue-rotate(90deg) drop-shadow(4px 0 #ff005c) drop-shadow(-4px 0 #00fff0);
+    opacity: 0.7;
+  }
+
+  92% {
+    transform: translateY(16vh) translateX(18px) rotate(-8deg) scaleX(0.92);
+    opacity: 1;
+  }
+
+  94% {
+    transform: translateY(24vh) translateX(-6px);
+    filter: contrast(1.2) brightness(1.3);
+  }
+}
+
+#catalogScreen {
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 60px 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  background: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-family: "Jacquard 12", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  transition: background 0.3s;
+  z-index: 100;
+}
+
+
+.back-btn a {
+  text-decoration: none;
+  color: white;
+}
+
+.back-btn:hover {
+  background: #8a1919;
+  color: black;
+}
+
+
+
+.swiper {
+  width: 100vw;
+  height: 100vh;
+
+}
+
+
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(255, 255, 255);
+}
+
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: fixed !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 60px !important;
+  height: 60px !important;
+  background: rgba(233, 224, 235, 0.8);
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 99999 !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  display: none !important;
+}
+
+
+.swiper-button-prev::before {
+  content: '❮' !important;
+  color: #000000;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.swiper-button-next::before {
+  content: '❯' !important;
+  /* Carácter de flecha nativo */
+  color: #000000;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+.swiper-button-prev {
+  left: 3% !important;
+}
+
+.swiper-button-next {
+  right: 3% !important;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(79, 67, 82, 0.8);
+}
+
+
+
+/* Asegurar que nada en el contenedor las oculte */
+.swiper {
+  overflow: visible !important;
+}
+
+.object-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8%;
+  width: 100%;
+  max-width: 80%;
+  padding: 10%;
+  align-self: center;
+}
+
+
+
+.object-layout img {
+
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+  align-self: center;
+
+}
+
+
+.object-info {
+
+  flex: 1;
+  font-family: 'Montserrat Alternates', sans-serif;
+
+}
+
+
+.object-info h2 {
+
+  font-size: 5.7rem;
+  margin-bottom: 20px;
+  color: #000000;
+  font-family: "Micro 5 Charted", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.object-info p {
+
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #000000;
+
+}
+
+
+.object-story {
+  overflow-y: auto;
+  padding-right: 15px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #000000;
+  text-align: justify;
+}
+
+.object-story {
+  max-height: 40vh;
+  overflow-y: auto !important;
+  touch-action: pan-y !important;
+}
+
+.object-story::-webkit-scrollbar {
+  width: 6px;
+}
+
+.object-story::-webkit-scrollbar-track {
+  background: rgba(173, 173, 173, 0.1);
+  /* Fondo rosa muy sutil */
+  border-radius: 4px;
+}
+
+.object-story::-webkit-scrollbar-thumb {
+  background: #000000;
+  /* Barra rosa neón */
+  border-radius: 4px;
 }
