@@ -1,0 +1,69 @@
+/* Solo catálogo — terror analógico / TV vieja */
+
+body.catalog-page {
+  background: #080808;
+  filter: contrast(1.65) brightness(1.22) saturate(0.58);
+  animation: catalogExposureFlicker 6s steps(2, end) infinite;
+}
+
+@keyframes catalogExposureFlicker {
+  0%,
+  92%,
+  100% {
+    filter: contrast(1.65) brightness(1.22) saturate(0.58);
+  }
+  93% {
+    filter: contrast(1.85) brightness(1.38) saturate(0.45);
+  }
+  95% {
+    filter: contrast(1.5) brightness(1.05) saturate(0.62);
+  }
+}
+
+body.catalog-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 88;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.18) 2px,
+    rgba(0, 0, 0, 0.18) 4px
+  );
+  mix-blend-mode: multiply;
+}
+
+body.catalog-page::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 89;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 35%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.85);
+}
+
+#catalog-tv-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 90;
+}
+
+body.catalog-page .swiper-slide {
+  background: #2e2e2e !important;
+}
+
+body.catalog-page .virus-clone {
+  mix-blend-mode: hard-light;
+  filter: contrast(1.4) brightness(1.15);
+}
