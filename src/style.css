@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bytesized&family=Coral+Pixels&family=Jacquard+12&family=Jacquarda+Bastarda+9&family=Micro+5+Charted&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Storm&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bytesized&family=Coral+Pixels&family=Jacquard+12&family=Jacquarda+Bastarda+9&family=Micro+5+Charted&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Pixelify+Sans:wght@400..700&family=Rubik+Storm&family=Sixtyfour+Convergence&display=swap');
 @import 'swiper/css';
 
 * {
@@ -543,3 +543,14 @@ body {
   /* Barra rosa neón */
   border-radius: 4px;
 }
+
+.classification {
+  font-size: 1.47em !important;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: left;
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+

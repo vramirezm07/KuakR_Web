@@ -39,8 +39,9 @@ if (virusOverlay) {
   catalogVirus.bind()
 }
 
+// Esto se queda idéntico en tu archivo principal, no tienes que cambiarle nada:
 const tvCanvas = document.getElementById('catalog-tv-canvas')
 if (tvCanvas) {
   const catalogTV = new CatalogAnalogTV(tvCanvas)
-  catalogTV.start()
+  catalogTV.start() // <- La inactividad se empieza a calcular automáticamente aquí dentro
 }
